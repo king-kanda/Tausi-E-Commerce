@@ -10,9 +10,10 @@ const roslindale = Roslindale({
 const inter = Inter({ subsets: ['latin'] })
 
 
-export default function Home() {
+const Home = ({}) => {
   return (
     <main className="flex min-h-screen flex-col  items-center justify-between p-24">
+
       <div className="flex flex-col items-center justify-center">
         <h1 className={`text-8xl text-red ${roslindale.className} `}>Tausi Store</h1>
         <p className={ `text-2xl text-black  ${inter.className} `}>Glamour for the masses</p>
@@ -20,3 +21,6 @@ export default function Home() {
     </main>
   )
 }
+
+
+export default Home

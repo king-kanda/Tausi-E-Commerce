@@ -1,8 +1,7 @@
 import './globals.css'
-import { Nav } from '../components/nav'
-// import { Footer } from '../components/footer'
-// import { Inter } from 'next/font/google'
-
+import  Nav  from '../components/nav'
+import  Footer from '../components/footer'
+import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -12,12 +11,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+
     <html lang="en">
-      {/* <Nav/> */}
-        <body className={`{inter.className}  bg-smoke `}>
-          {children}
+        <body className={` ${inter.className}  bg-smoke `}>
+          <Nav></Nav>
+            {children}
+          <Footer></Footer>
         </body>
-      {/* <Footer/> */}
     </html>
   )
 }
+
