@@ -1,13 +1,59 @@
-'use Client'
+'use client';
+
+import React , {useState } from 'react'
+import Link from 'next/link'
+import { Inter } from 'next/font/google'
+import Roslindale from 'next/font/local'
+import { BsSearch ,BsCart3 } from 'react-icons/bs'
+import { VscAccount } from 'react-icons/vsc'
+
+const roslindale = Roslindale({ 
+  src: '../../public/fonts/Roslindale-DisplayCondensedMedium-Testing.woff2',
+  display: 'swap',
+ })
+
+const inter = Inter({ subsets: ['latin'] })
 
 const Nav = () => {
+    
+    const [showDropdown, setShowDropdown] = useState(false);
+
+    const handleDropdown = () => {
+      setShowDropdown(!showDropdown);
+    };
+
     return (
         <div className="container bg-transparent  top-0 z-10">            
-            <nav className="flex bg-white   items-center justify-between py-2">
+            <nav className="flex bg-white   items-center justify-between ">
                     <div className="p-4">
-                        <Link href="/">
-                            fire
-                        </Link>
+                        <ul className={`flex flex-col mt-4 md:flex-row md:space-x-4 md:mt-0   text-red ${inter.className}` }>
+                        <li className="p-4 hover:underline cursor-pointer relative" onMouseOver={handleDropdown}>
+                            Shop
+                                {showDropdown && (
+                                    <ul className="absolute top-8 bg-white w-full p-2  shadow-md">
+                                    <li className="py-2 hover:underline">
+                                        <Link href="/">Category 1</Link>
+                                    </li>
+                                    <li className="py-2 hover:underline">
+                                        <Link href="/">Category 2</Link>
+                                    </li>
+                                    <li className="py-2 hover:underline">
+                                        <Link href="/">Category 3</Link>
+                                    </li>
+                                    </ul>
+                                )}
+                            </li>
+                            <li className="p-4">
+                                <Link href="/about">
+                                    Discover 
+                                </Link>
+                            </li>
+                            <li className="p-4">
+                                <Link href="/about">
+                                    Stores 
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
                     <div className="md:hidden sm:block px-4">
                         <button 
@@ -20,35 +66,37 @@ const Nav = () => {
                             </svg>
                         </button>
                     </div>
-                    <div className="nav-hoolder  hidden w-full md:block md:w-auto " id="mobile-menu">
-                        <ul className="flex flex-col mt-4 md:flex-row md:space-x-4 md:mt-0 md:text-sm md:font-medium">
-                            <li className="p-4">
+
+                    <div className="hidden  md:block md:w-auto " id="mobile-menu">
+                        <h3 className={`text-4xl ${roslindale.className} text-red text-center`}>tausi </h3>
+                    </div>
+
+                    <div className="hidden md:block w-56">
+                        <ul className={`flex flex-col mt-4 md:flex-row md:space-x-4 md:mt-0 md:text-xl text-red  ${inter.className}` }>
+                            <li className=" hover:underline px-4 py-4">
                                 <Link href="/">
-                                    Home
+                                    <VscAccount/>
                                 </Link>
                             </li>
-                            <li className="p-4">
-                                <Link href="/about">About Us </Link>
+                            <li className="px-4 py-4">
+                                <Link href="/about">
+                                    <BsSearch/>
+                                </Link>
                             </li>
-                            <li className="p-4">
-                                <Link href="/services"> Services </Link>
+                            
+                            <li className="px-4 py-4 relative">
+                                <Link href="/about">
+                                    <span className="inline-block bg-gray-dark text-white text-xs font-bold rounded-full px-2 py-1 absolute top-0 right-0 transform translate-x-1/3 -translate-y-1/5">
+                                    2
+                                    </span>
+                                    <BsCart3 />
+                                </Link>
                             </li>
-                            <li className="p-4">
-                                <Link href="/projects"> Projects </Link>
-                            </li>
-                            <li className="p-4">
-                                <Link href="/contact"> Blogs </Link>
-                            </li>
-                        
                         </ul>
-                    </div>
-                    <div className="hidden md:block">
-                        <button className="bg-orange-500 text-white px-4 py-3 rounded ">
-                            <Link href="/contact"> Contact Us</Link>
-                        </button>
                     </div>
             </nav>
         </div>
+        
     );
 }
 
