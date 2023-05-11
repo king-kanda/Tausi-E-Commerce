@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 /* @font-face {
-  src: url('../../public/fonts/Roslindale-DisplayCondensedMedium-Testing.woff2') format("woff2"),
-       url('../../public/fonts/Roslindale-DisplayCondensedMedium-Testing.woff') format("woff");
+  src: url('../../public/fonts/Roslindale-DisplayCondensedMedium-Light.woff2') format("woff2"),
+       url('../../public/fonts/Roslindale-DisplayCondensedMedium-Light.woff') format("woff");
   font-family: 'Roslindale';
   font-style: normal;
   font-weight: 500;

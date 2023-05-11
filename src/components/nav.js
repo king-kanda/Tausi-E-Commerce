@@ -1,6 +1,6 @@
 'use client';
 
-import React , {useState } from 'react'
+import React  from 'react'
 import Link from 'next/link'
 import { Inter } from 'next/font/google'
 import Roslindale from 'next/font/local'
@@ -8,7 +8,7 @@ import { BsSearch ,BsCart3 } from 'react-icons/bs'
 import { VscAccount } from 'react-icons/vsc'
 
 const roslindale = Roslindale({ 
-  src: '../../public/fonts/Roslindale-DisplayCondensedMedium-Testing.woff2',
+  src: '../../public/fonts/Roslindale-DisplayCondensedLight-Testing.woff2',
   display: 'swap',
  })
 
@@ -16,32 +16,14 @@ const inter = Inter({ subsets: ['latin'] })
 
 const Nav = () => {
     
-    const [showDropdown, setShowDropdown] = useState(false);
-
-    const handleDropdown = () => {
-      setShowDropdown(!showDropdown);
-    };
-
     return (
         <div className="container bg-transparent  top-0 z-10">            
             <nav className="flex bg-white   items-center justify-between ">
                     <div className="p-4">
                         <ul className={`flex flex-col mt-4 md:flex-row md:space-x-4 md:mt-0   text-red ${inter.className}` }>
-                        <li className="p-4 hover:underline cursor-pointer relative" onMouseOver={handleDropdown}>
+                        <li className="p-4 hover:underline cursor-pointer relative" >
                             Shop
-                                {showDropdown && (
-                                    <ul className="absolute top-8 bg-white w-full p-2  shadow-md">
-                                    <li className="py-2 hover:underline">
-                                        <Link href="/">Category 1</Link>
-                                    </li>
-                                    <li className="py-2 hover:underline">
-                                        <Link href="/">Category 2</Link>
-                                    </li>
-                                    <li className="py-2 hover:underline">
-                                        <Link href="/">Category 3</Link>
-                                    </li>
-                                    </ul>
-                                )}
+                               
                             </li>
                             <li className="p-4">
                                 <Link href="/about">
@@ -73,11 +55,7 @@ const Nav = () => {
 
                     <div className="hidden md:block w-56">
                         <ul className={`flex flex-col mt-4 md:flex-row md:space-x-4 md:mt-0 md:text-xl text-red  ${inter.className}` }>
-                            <li className=" hover:underline px-4 py-4">
-                                <Link href="/">
-                                    <VscAccount/>
-                                </Link>
-                            </li>
+                           
                             <li className="px-4 py-4">
                                 <Link href="/about">
                                     <BsSearch/>
@@ -90,6 +68,11 @@ const Nav = () => {
                                     2
                                     </span>
                                     <BsCart3 />
+                                </Link>
+                            </li>
+                            <li className=" hover:underline px-4 py-4">
+                                <Link href="/">
+                                    <VscAccount/>
                                 </Link>
                             </li>
                         </ul>
